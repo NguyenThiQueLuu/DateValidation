@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
 namespace DateTime
 {
     public partial class Form1 : Form
@@ -23,31 +22,6 @@ namespace DateTime
             txtYear.Text = " ";
         }
 
-        private int DaysInMonth(int Year, int Month)
-        {
-            if (Month == 1 || Month == 3 || Month == 5 || Month == 7 || Month == 8 || Month == 10 || Month == 12)
-                return 31;
-            else
-            {
-                if (Month == 4 || Month == 6 || Month == 9 || Month == 11)
-                    return 30;
-                else if (Month == 2)
-                {
-                    if (Year % 400 == 0)
-                        return 29;
-                    else if (Year % 100 == 0)
-                        return 28;
-                    else if (Year % 4 == 0)
-                        return 29;
-                    else return 28;
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-        }
-
         private void btnCheck_Click(object sender, EventArgs e)
         {
             int Day = 0;
@@ -57,16 +31,13 @@ namespace DateTime
 
             #region Ktra ngày
             string strDay = txtDay.Text;
-            try
-            {
-                Day = int.Parse(strDay);
-            }
-            catch
+            Day = Helper.CheckDays(strDay);
+            if (Day == -1)
             {
                 MessageBox.Show("Input data for Day is incorrect format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 flag = false;
             }
-            if (flag && (Day < 1 || Day > 31))
+            if (flag && Day == -2)
             {
                 MessageBox.Show("Input data for Day is out of range!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 flag = false;
@@ -74,19 +45,16 @@ namespace DateTime
             #endregion
 
             #region Ktra tháng
+            string strMonth = txtMonth.Text;
+            Month = Helper.CheckMonth(strMonth);
             if (flag)
             {
-                string strMonth = txtMonth.Text;
-                try
-                {
-                    Month = int.Parse(strMonth);
-                }
-                catch
+                if (Month == -1)
                 {
                     MessageBox.Show("Input data for Month is incorrect format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     flag = false;
                 }
-                if (flag && (Month < 1 || Month > 12))
+                if (flag && Month == -2)
                 {
                     MessageBox.Show("Input data for Month is out of range!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     flag = false;
@@ -95,19 +63,16 @@ namespace DateTime
             #endregion
 
             #region Ktra năm
+            string strYear = txtYear.Text;
+            Year = Helper.CheckYear(strYear);
             if (flag)
             {
-                string strYear = txtYear.Text;
-                try
-                {
-                    Year = int.Parse(strYear);
-                }
-                catch
+                if(Year == -1)
                 {
                     MessageBox.Show("Input data for Year is incorrect format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     flag = false;
                 }
-                if (flag && (Year < 1000 || Year > 3000))
+                if (flag && Year == -2)
                 {
                     MessageBox.Show("Input data for Year is out of range!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     flag = false;
@@ -118,7 +83,7 @@ namespace DateTime
             #region Ktra ngày có hợp lệ
             if (flag)
             {
-                if (Day <= DaysInMonth(Year, Month))
+                if (Day <= Helper.DaysInMonth(Year, Month))
                 {
                     MessageBox.Show(string.Format("{0}/{1}/{2} is correct date time!", Day.ToString("00"), Month.ToString("00"), Year.ToString("0000")), "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -139,7 +104,5 @@ namespace DateTime
             }
            
         }
-
-      
     }
 }
