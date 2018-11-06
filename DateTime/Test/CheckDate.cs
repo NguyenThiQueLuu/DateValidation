@@ -17,5 +17,11 @@ namespace Test
         {
             Assert.IsTrue(Helper.IsValidDate("30", "2", "2000") == false);
         }
+
+        [TestMethod]
+        public void Test003()
+        {
+            Assert.IsTrue(Helper.IsValidDate("30", "100", "2000") == false);
+        }
     }
 }
