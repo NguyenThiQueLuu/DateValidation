@@ -51,5 +51,9 @@ namespace Test
         {
             Assert.IsTrue(Helper.IsValidDate("0", "10", "2000") == false);
         }
+        public void Test011()
+        {
+            Assert.IsTrue(Helper.IsValidDate("a", "10", "2000") == false);
+        }
     }
 }
