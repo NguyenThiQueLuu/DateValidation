@@ -10,7 +10,6 @@ C:\Users\Dung\Desktop\Thực hành cô Trang\DateTime\DateTime\obj\x86\Debug\Dat
 C:\Users\Dung\Desktop\Thực hành cô Trang\DateTime\DateTime\obj\x86\Debug\DateTime.pdb
 C:\Users\Dung\Documents\GitHub\DateValidation\DateTime\DateTime\bin\Debug\DateTime.exe
 C:\Users\Dung\Documents\GitHub\DateValidation\DateTime\DateTime\bin\Debug\DateTime.pdb
-C:\Users\Dung\Documents\GitHub\DateValidation\DateTime\DateTime\obj\x86\Debug\View.csprojResolveAssemblyReference.cache
 C:\Users\Dung\Documents\GitHub\DateValidation\DateTime\DateTime\obj\x86\Debug\DateTime.Form1.resources
 C:\Users\Dung\Documents\GitHub\DateValidation\DateTime\DateTime\obj\x86\Debug\DateTime.Properties.Resources.resources
 C:\Users\Dung\Documents\GitHub\DateValidation\DateTime\DateTime\obj\x86\Debug\View.csproj.GenerateResource.cache

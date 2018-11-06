@@ -51,6 +51,7 @@
     <Compile Include="CheckDate.cs" />
     <Compile Include="CheckMonth.cs" />
     <Compile Include="CheckDays.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
