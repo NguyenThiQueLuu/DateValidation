@@ -27,5 +27,17 @@ namespace Test
         {
             Assert.IsTrue(Helper.IsValidDate("300", "100", "2000") == false);
         }
+        public void Test005()
+        {
+            Assert.IsTrue(Helper.IsValidDate("27", "a", "2000") == false);
+        }
+        public void Test006()
+        {
+            Assert.IsTrue(Helper.IsValidDate("56", "1", "2000") == false);
+        }
+        public void Test007()
+        {
+            Assert.IsTrue(Helper.IsValidDate("3", "1", "2000") == true);
+        }
     }
 }
